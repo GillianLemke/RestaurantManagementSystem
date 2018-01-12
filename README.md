@@ -12,6 +12,6 @@ windows: ```pip install Flask```
 
 ## Running the app
 ```
-$ export FLASK_APP=hello.py
+$ export FLASK_APP=main.py
 $ flask run
 ```

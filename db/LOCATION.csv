@@ -1,0 +1,5 @@
+address,type,hours,manager
+"10101 Huron River, 33333",WAREHOUSE,"M-Sat 10:00am-10:00pm, Sun 12:00pm-8:00pm",36
+"1234 Main Street, 12345",DRIVETHRU,"M-Sat 10:00am-10:00pm, Sun 12:00pm-8:00pm",34
+"2222 Grand River Ave, 22222",SITIN,"M-Sat 10:00am-10:00pm, Sun 12:00pm-8:00pm",37
+"5678 Waverly Place, 88888",DELIVERY,"M-Sat 10:00am-10:00pm, Sun 12:00pm-8:00pm",35

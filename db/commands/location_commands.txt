@@ -1,4 +1,4 @@
-INSERT INTO location(address, type, hours, manager) VALUES ('1234 Main Street, 12345', 'DRIVETHRU', 'M-Sat 10:00am-10:00pm, Sun 12:00pm-8:00pm', 34);
-INSERT INTO location(address, type, hours, manager) VALUES ('5678 Waverly Place, 88888', 'DELIVERY', 'M-Sat 10:00am-10:00pm, Sun 12:00pm-8:00pm', 35);
-INSERT INTO location(address, type, hours, manager) VALUES ('10101 Huron River, 33333', 'WAREHOUSE', 'M-Sat 10:00am-10:00pm, Sun 12:00pm-8:00pm', 36);
-INSERT INTO location(address, type, hours, manager) VALUES ('2222 Grand River Ave, 22222', 'SITIN', 'M-Sat 10:00am-10:00pm, Sun 12:00pm-8:00pm', 37);
+INSERT INTO restaurant.location(address, type, hours, manager) VALUES ('1234 Main Street, 12345', 'DRIVETHRU', 'M-Sat 10:00am-10:00pm, Sun 12:00pm-8:00pm', 1);
+INSERT INTO restaurant.location(address, type, hours, manager) VALUES ('5678 Waverly Place, 88888', 'DELIVERY', 'M-Sat 10:00am-10:00pm, Sun 12:00pm-8:00pm', 3);
+INSERT INTO restaurant.location(address, type, hours, manager) VALUES ('10101 Huron River, 33333', 'WAREHOUSE', 'M-Sat 10:00am-10:00pm, Sun 12:00pm-8:00pm', 5);
+INSERT INTO restaurant.location(address, type, hours, manager) VALUES ('2222 Grand River Ave, 22222', 'SITIN', 'M-Sat 10:00am-10:00pm, Sun 12:00pm-8:00pm', 7);

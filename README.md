@@ -12,6 +12,13 @@ windows: ```pip install Flask```
 
 ## Running the app
 ```
-$ export FLASK_APP=hello.py
+$ export FLASK_APP=main.py
 $ flask run
 ```
+
+## Add to DB
+```
+cd db/
+python [filename].py
+```
+example: ```python create_employee.py```

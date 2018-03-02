@@ -1,0 +1,42 @@
+CREATE TABLE `restaurant`.`employee` (
+  `name` CHAR(40) NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `wage` FLOAT NULL,
+  `status` ENUM('PARTTIME', 'FULLTIME', 'MANAGEMENT', 'TERMINATED', 'RETIRED') NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC));
+
+INSERT INTO restaurant.employee(name, id, wage, status) VALUES ('Gillian Lemke', 0, 10.50, 'PARTTIME');
+INSERT INTO restaurant.employee(name, id, wage, status) VALUES ('Jacob Rickerd', 0, 10.50, 'FULLTIME');
+INSERT INTO restaurant.employee(name, id, wage, status) VALUES ('Charlotte Lemke', 0, 10.50, 'PARTTIME');
+INSERT INTO restaurant.employee(name, id, wage, status) VALUES ('Julia Lemke', 0, 10.50, 'FULLTIME');
+INSERT INTO restaurant.employee(name, id, wage, status) VALUES ('Kevin Lemke', 0, 10.50, 'RETIRED');
+INSERT INTO restaurant.employee(name, id, wage, status) VALUES ('Amy Lemke', 0, 10.50, 'TERMINATED');
+INSERT INTO restaurant.employee(name, id, wage, status) VALUES ('Alex Barhorst', 0, 10.50, 'FULLTIME');
+INSERT INTO restaurant.employee(name, id, wage, status) VALUES ('Collin Rogers', 0, 10.50, 'PARTTIME');
+INSERT INTO restaurant.employee(name, id, wage, status) VALUES ('Zach Wood', 0, 10.50, 'RETIRED');
+INSERT INTO restaurant.employee(name, id, wage, status) VALUES ('Harry Potter', 0, 10.50, 'PARTTIME');
+
+CREATE TABLE `restaurant`.`location` (
+  `address` CHAR(100) NOT NULL,
+  `type` ENUM('DRIVETHRU', 'WAREHOUSE', 'SITIN', 'DELIVERY') NOT NULL,
+  `hours` CHAR(100) NULL,
+  `manager` INT NULL,
+  PRIMARY KEY (`address`),
+  UNIQUE INDEX `address_UNIQUE` (`address` ASC),
+  INDEX `manager_idx` (`manager` ASC),
+  CONSTRAINT `manager`
+    FOREIGN KEY (`manager`)
+    REFERENCES `restaurant`.`employee` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
+ALTER TABLE `restaurant`.`employee` 
+    ADD COLUMN `location` CHAR(100) NULL AFTER `status`,
+    ADD INDEX `location_idx` (`location` ASC);
+    ALTER TABLE `restaurant`.`employee`
+    ADD CONSTRAINT `location`
+      FOREIGN KEY (`location`)
+      REFERENCES `restaurant`.`location` (`address`)
+      ON DELETE NO ACTION
+      ON UPDATE NO ACTION;

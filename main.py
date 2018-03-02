@@ -13,10 +13,6 @@ def home(name=None):
 
 @app.route('/products')
 def products():
-    # data = Products.get_products()
-    data = [
-        {'name': 'banana', 'cost': 2.22, 'ingredients': 'none'},
-        {'name': 'apple', 'cost': 2.22, 'ingredients': 'none'},
-        {'name': 'orange', 'cost': 2.22, 'ingredients': 'none'},
-    ]
+    product_instance = Products()
+    data = product_instance.get_products()
     return render_template('products.html', products=data)

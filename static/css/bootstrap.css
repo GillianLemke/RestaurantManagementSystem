@@ -18,11 +18,21 @@ body {
 
 article,
 aside,
-footer,
 header,
 nav,
 section {
   display: block;
+}
+
+.footer-bar {
+  height: 40px;
+  line-height: 40px;
+  width: 100%;
+  background-color: #f7f7f7;
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.9);
 }
 
 h1 {

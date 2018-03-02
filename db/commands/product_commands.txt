@@ -1,0 +1,27 @@
+CREATE TABLE `restaurant`.`product` (
+  `name` VARCHAR(50) NOT NULL,
+  `cost` DOUBLE NULL DEFAULT 0.00,
+  `ingredients` VARCHAR(50) NULL,
+  PRIMARY KEY (`name`));
+
+
+INSERT INTO restaurant.product(name, cost) VALUES ('banana', 2.22);
+INSERT INTO restaurant.product(name, cost) VALUES ('orange', 3.33);
+INSERT INTO restaurant.product(name, cost) VALUES ('apple', 4.44);
+INSERT INTO restaurant.product(name, cost) VALUES ('papaya', 2.02);
+INSERT INTO restaurant.product(name, cost) VALUES ('peach', 1.99);
+INSERT INTO restaurant.product(name, cost) VALUES ('pear', 0.50);
+INSERT INTO restaurant.product(name, cost) VALUES ('prune', 0.79);
+INSERT INTO restaurant.product(name, cost) VALUES ('grapes', 3.21);
+INSERT INTO restaurant.product(name, cost) VALUES ('pineapple', 5.22);
+INSERT INTO restaurant.product(name, cost) VALUES ('plum', 6.43);
+INSERT INTO restaurant.product(name, cost) VALUES ('strawberry', 1.63);
+INSERT INTO restaurant.product(name, cost) VALUES ('raspberry', 2.53);
+INSERT INTO restaurant.product(name, cost) VALUES ('blueberry', 3.96);
+INSERT INTO restaurant.product(name, cost) VALUES ('kiwi', 1.75);
+INSERT INTO restaurant.product(name, cost) VALUES ('grapefruit', 1.76);
+INSERT INTO restaurant.product(name, cost) VALUES ('starfruit', 2.53);
+INSERT INTO restaurant.product(name, cost) VALUES ('apricot', 7.32);
+INSERT INTO restaurant.product(name, cost) VALUES ('cantaloupe', 2.96);
+INSERT INTO restaurant.product(name, cost) VALUES ('watermelon', 3.87);
+INSERT INTO restaurant.product(name, cost) VALUES ('cherries', 1.74);

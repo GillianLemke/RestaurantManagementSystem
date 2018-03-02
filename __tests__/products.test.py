@@ -11,10 +11,9 @@ class ProductsTest(unittest.TestCase):
 
         sample_product_from_db = {'name': 'apple', 'cost': 4.44, 'ingredients': None}
 
-        print sample_product_from_db
-        test = Products.get_products()
-        print test
-        # self.assertEqual(test[0], sample_product_from_db)
+        product_instance = Products()
+        test = product_instance.get_products()
+        self.assertEqual(test[0], sample_product_from_db)
 
 
 

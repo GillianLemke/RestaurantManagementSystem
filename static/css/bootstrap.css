@@ -35,6 +35,17 @@ section {
   color: rgba(0, 0, 0, 0.9);
 }
 
+.page-heading {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  margin-left: 50px;
+}
+
+.well {
+  margin-left:50px;
+  margin-right:50px;
+}
+
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
@@ -2096,7 +2107,7 @@ pre code {
 .table td {
   padding: 0.75rem;
   vertical-align: top;
-  border-top: 1px solid #eceeef;
+  border: 1px solid #eceeef;
 }
 
 .table thead th {
@@ -3985,6 +3996,7 @@ tbody.collapse.show {
   background: transparent;
   border: 1px solid transparent;
   border-radius: 0.25rem;
+  margin-right: 35px;
 }
 
 .navbar-toggler:focus, .navbar-toggler:hover {
@@ -4327,6 +4339,10 @@ tbody.collapse.show {
 .navbar-light .navbar-brand,
 .navbar-light .navbar-toggler {
   color: rgba(0, 0, 0, 0.9);
+}
+
+.navbar-brand {
+  margin-left: 35px;
 }
 
 .navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:hover,

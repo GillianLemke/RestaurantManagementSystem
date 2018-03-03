@@ -46,10 +46,18 @@ section {
   margin-right:50px;
 }
 
+.form-container {
+  margin-top: 70px;
+}
+
 .button-container {
   height: 40px;
   right: 40px;
   float: right;
+}
+
+.add-submit {
+  margin-right: 50px;
 }
 
 .sticky-header {
@@ -303,7 +311,7 @@ template {
   }
   a,
   a:visited {
-    text-decoration: underline;
+    text-decoration: none;
   }
   abbr[title]::after {
     content: " (" attr(title) ")";
@@ -435,13 +443,13 @@ blockquote {
 }
 
 a {
-  color: #0275d8;
+  color: #fff;
   text-decoration: none;
 }
 
 a:focus, a:hover {
-  color: #014c8c;
-  text-decoration: underline;
+  color: #fff;
+  text-decoration: none;
 }
 
 a:not([href]):not([tabindex]) {

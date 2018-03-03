@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Add Product{% endblock %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+{% block content %}
+<h1 class="page-heading">Add Product</h1>
+<div>
+  <div class="well form-container">
+    <form>
+      <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">Name</label>
+        <div class="col-10">
+          <input class="form-control" type="text" value="" id="product-name">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="example-search-input" class="col-2 col-form-label">Cost</label>
+        <div class="col-10">
+          <input class="form-control" type="number" value="" id="product-cost">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="example-email-input" class="col-2 col-form-label">Ingredients</label>
+        <div class="col-10">
+          <input class="form-control" type="text" value="" id="product-ingredients">
+        </div>
+      </div>
+    </div>
+    <div class="button-container add-submit">
+      <button type="button" class="btn btn-success">
+        Add New Product
+      </button>
+    </div>
+  </form>
+</div>
+{% endblock %}

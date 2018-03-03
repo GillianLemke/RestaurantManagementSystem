@@ -33,6 +33,19 @@ class Products:
 
         return products_from_db
 
+    def add_product(self, name, cost, ingredients):
+        product_instance = Products()
+        current_products = product_instance.get_products()
+
+        # check to make sure a tuple with that primary key doesn't already exist
+        for product in current_products:
+            if name == product["name"]:
+                return 0
+
+
+        return 3
+
+
 
 product_instance = Products()
 product_instance.get_products()

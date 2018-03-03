@@ -22,8 +22,8 @@ class ProductsTest(unittest.TestCase):
         product_instance = Products()
 
         # method should return object added if successful
-        # test = product_instance.add_product(product_to_add["name"], product_to_add["cost"], product_to_add["ingredients"])
-        # self.assertEqual(test, product_to_add)
+        test = product_instance.add_product(product_to_add["name"], product_to_add["cost"], product_to_add["ingredients"])
+        self.assertEqual(test, product_to_add)
 
         # method should return 0 if object already exists
         product_to_add_key_already_exists = {'name': 'apple', 'cost': 2.22, 'ingredients': None}
@@ -31,6 +31,7 @@ class ProductsTest(unittest.TestCase):
         self.assertEqual(test2, 0)
 
         # method should return 1 if sql error
+        # TODO: check to make sure ingredients exist
 
 
 

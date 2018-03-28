@@ -1,5 +1,6 @@
 from flask import Flask
 from flask import render_template
+from ingredients import Ingredients
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
@@ -10,7 +11,9 @@ def home(name=None):
 
 @app.route('/ingredients')
 def ingredients():
-    return render_template('ingredients.html')
+    ingredients_instance = Ingredients()
+    data = ingredients_instance.get_ingredients()
+    return render_template('ingredients.html', ingredients=data)
 
 @app.route('/suppliers')
 def suppliers():

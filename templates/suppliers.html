@@ -12,12 +12,16 @@
       <thead>
         <tr>
           <th>Name</th>
+          <th>Contact Name</th>
+          <th>Contact Phone</th>
         </tr>
       </thead>
       <tbody>
         {% for supplier in suppliers %}
           <tr>
             <td>{{supplier.name}}</td>
+            <td>{{supplier.contact_name}}</td>
+            <td>{{supplier.contact_phone}}</td>
           </tr>
         {% endfor %}
       </tbody>

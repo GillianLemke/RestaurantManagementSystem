@@ -35,6 +35,43 @@ section {
   color: rgba(0, 0, 0, 0.9);
 }
 
+.page-heading {
+  margin-top: 30px;
+  margin-bottom: -40px;
+  margin-left: 50px;
+}
+
+.well {
+  margin-left:50px;
+  margin-right:50px;
+  margin-bottom: 100px;
+}
+
+.form-container {
+  margin-top: 70px;
+  margin-bottom: 30px;
+}
+
+.button-container {
+  height: 40px;
+  right: 40px;
+  float: right;
+}
+
+.add-submit, .delete-submit {
+  margin-right: 50px;
+}
+
+.sticky-header {
+  position: fixed !important;
+  width: 100%;
+  top: 0;
+}
+
+#content {
+  margin-top: 80px;
+}
+
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
@@ -276,7 +313,7 @@ template {
   }
   a,
   a:visited {
-    text-decoration: underline;
+    text-decoration: none;
   }
   abbr[title]::after {
     content: " (" attr(title) ")";
@@ -408,13 +445,13 @@ blockquote {
 }
 
 a {
-  color: #0275d8;
+  color: #fff;
   text-decoration: none;
 }
 
 a:focus, a:hover {
-  color: #014c8c;
-  text-decoration: underline;
+  color: #fff;
+  text-decoration: none;
 }
 
 a:not([href]):not([tabindex]) {
@@ -2096,7 +2133,7 @@ pre code {
 .table td {
   padding: 0.75rem;
   vertical-align: top;
-  border-top: 1px solid #eceeef;
+  border: 1px solid #eceeef;
 }
 
 .table thead th {
@@ -3985,6 +4022,7 @@ tbody.collapse.show {
   background: transparent;
   border: 1px solid transparent;
   border-radius: 0.25rem;
+  margin-right: 35px;
 }
 
 .navbar-toggler:focus, .navbar-toggler:hover {
@@ -4327,6 +4365,10 @@ tbody.collapse.show {
 .navbar-light .navbar-brand,
 .navbar-light .navbar-toggler {
   color: rgba(0, 0, 0, 0.9);
+}
+
+.navbar-brand {
+  margin-left: 35px;
 }
 
 .navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:hover,

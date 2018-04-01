@@ -33,5 +33,17 @@ def add_new_product():
         return render_template('add_new_product.html')
 
 
+@app.route('/delete_product', methods=['GET', 'POST'])
+def delete_product():
+    if request.method == 'POST':
+        name = request.form['product-name']
+
+        product_instance = Products()
+        product_instance.delete_product(name)
+        return redirect('/products')
+    else:
+        return render_template('delete_product.html')
+
+
 if __name__ == "__main__":
     app.run()

@@ -5,23 +5,13 @@ CREATE TABLE `restaurant`.`product` (
   PRIMARY KEY (`name`));
 
 
-INSERT INTO restaurant.product(name, cost) VALUES ('banana', 2.22);
-INSERT INTO restaurant.product(name, cost) VALUES ('orange', 3.33);
-INSERT INTO restaurant.product(name, cost) VALUES ('apple', 4.44);
-INSERT INTO restaurant.product(name, cost) VALUES ('papaya', 2.02);
-INSERT INTO restaurant.product(name, cost) VALUES ('peach', 1.99);
-INSERT INTO restaurant.product(name, cost) VALUES ('pear', 0.50);
-INSERT INTO restaurant.product(name, cost) VALUES ('prune', 0.79);
-INSERT INTO restaurant.product(name, cost) VALUES ('grapes', 3.21);
-INSERT INTO restaurant.product(name, cost) VALUES ('pineapple', 5.22);
-INSERT INTO restaurant.product(name, cost) VALUES ('plum', 6.43);
-INSERT INTO restaurant.product(name, cost) VALUES ('strawberry', 1.63);
-INSERT INTO restaurant.product(name, cost) VALUES ('raspberry', 2.53);
-INSERT INTO restaurant.product(name, cost) VALUES ('blueberry', 3.96);
-INSERT INTO restaurant.product(name, cost) VALUES ('kiwi', 1.75);
-INSERT INTO restaurant.product(name, cost) VALUES ('grapefruit', 1.76);
-INSERT INTO restaurant.product(name, cost) VALUES ('starfruit', 2.53);
-INSERT INTO restaurant.product(name, cost) VALUES ('apricot', 7.32);
-INSERT INTO restaurant.product(name, cost) VALUES ('cantaloupe', 2.96);
-INSERT INTO restaurant.product(name, cost) VALUES ('watermelon', 3.87);
-INSERT INTO restaurant.product(name, cost) VALUES ('cherries', 1.74);
+INSERT INTO restaurant.product(name, cost, ingredients) VALUES ('breakfast burrito', 2.22, 'eggs, flour tortilla, refried beans');
+INSERT INTO restaurant.product(name, cost, ingredients) VALUES ('burrito', 2.22, 'beef, taco seasoning');
+INSERT INTO restaurant.product(name, cost, ingredients) VALUES ('chips', 2.22, 'corn flour');
+INSERT INTO restaurant.product(name, cost, ingredients) VALUES ('cinnamon bites', 2.22, 'flour, cinnamon, sugar');
+INSERT INTO restaurant.product(name, cost, ingredients) VALUES ('fried banana', 2.22, 'bananas, flour, sugar');
+INSERT INTO restaurant.product(name, cost, ingredients) VALUES ('guacamole', 2.22, 'avacado');
+INSERT INTO restaurant.product(name, cost, ingredients) VALUES ('mexican pizza', 2.22, 'corn flour, tomatoes, refried beans');
+INSERT INTO restaurant.product(name, cost, ingredients) VALUES ('queso', 2.22, 'cheese, green peppers');
+INSERT INTO restaurant.product(name, cost, ingredients) VALUES ('slushie', 2.22, 'sugar, water');
+INSERT INTO restaurant.product(name, cost, ingredients) VALUES ('taco', 2.22, 'corn flour, beef, tomatoes');

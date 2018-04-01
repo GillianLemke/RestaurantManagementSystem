@@ -49,6 +49,7 @@ section {
 
 .form-container {
   margin-top: 70px;
+  margin-bottom: 30px;
 }
 
 .button-container {
@@ -57,7 +58,7 @@ section {
   float: right;
 }
 
-.add-submit {
+.add-submit, .delete-submit {
   margin-right: 50px;
 }
 

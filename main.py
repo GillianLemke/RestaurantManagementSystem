@@ -1,6 +1,7 @@
-from flask import Flask, request, url_for, redirect
+from flask import Flask, request, url_for, redirect, flash
 from flask import render_template
 from products import Products
+
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
@@ -17,6 +18,20 @@ def products():
     data = product_instance.get_products()
     return render_template('products.html', products=data)
 
-@app.route('/add_new_product')
+
+@app.route('/add_new_product', methods=['GET', 'POST'])
 def add_new_product():
-    return render_template('add_new_product.html')
+    if request.method == 'POST':
+        name = request.form['product-name']
+        cost = request.form['product-cost']
+        ingredients = request.form['product-ingredients']
+
+        product_instance = Products()
+        product_instance.add_product(name, cost, ingredients)
+        return redirect('/products')
+    else:
+        return render_template('add_new_product.html')
+
+
+if __name__ == "__main__":
+    app.run()

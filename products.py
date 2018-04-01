@@ -10,7 +10,7 @@ class Products:
         db = MySQLdb.connect(host="127.0.0.1", user="root", passwd="secret", db="restaurant", port=33306)
         cursor = db.cursor()
 
-        get_all = "SELECT * FROM product"
+        get_all = "SELECT * FROM product;"
 
         products_from_db = []
 
@@ -37,13 +37,6 @@ class Products:
         product_instance = Products()
         current_products = product_instance.get_products()
 
-        print name
-        print bool(name)
-        print cost
-        print bool(name)
-        print ingredients
-        print bool(ingredients)
-
         # check to make sure a tuple with that primary key doesn't already exist
         for product in current_products:
             if name == product["name"]:
@@ -63,18 +56,10 @@ class Products:
         try:
             # Execute the SQL command
             cursor.execute(add_command)
+            db.commit()
             return {'name': name, 'cost': cost, 'ingredients': ingredients}
+            db.close()
         except:
-            # return 1 if sql error
+            db.rollback()
             return 1
 
-
-        # TODO: check to make sure ingredients exist
-
-
-        return -1
-
-
-
-product_instance = Products()
-product_instance.get_products()

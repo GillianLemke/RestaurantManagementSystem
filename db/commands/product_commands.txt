@@ -1,0 +1,17 @@
+CREATE TABLE `restaurant`.`product` (
+  `name` VARCHAR(50) NOT NULL,
+  `cost` DOUBLE NULL DEFAULT 0.00,
+  `ingredients` VARCHAR(50) NULL,
+  PRIMARY KEY (`name`));
+
+
+INSERT INTO restaurant.product(name, cost, ingredients) VALUES ('breakfast burrito', 2.22, 'eggs, flour tortilla, refried beans');
+INSERT INTO restaurant.product(name, cost, ingredients) VALUES ('burrito', 2.22, 'beef, taco seasoning');
+INSERT INTO restaurant.product(name, cost, ingredients) VALUES ('chips', 2.22, 'corn flour');
+INSERT INTO restaurant.product(name, cost, ingredients) VALUES ('cinnamon bites', 2.22, 'flour, cinnamon, sugar');
+INSERT INTO restaurant.product(name, cost, ingredients) VALUES ('fried banana', 2.22, 'bananas, flour, sugar');
+INSERT INTO restaurant.product(name, cost, ingredients) VALUES ('guacamole', 2.22, 'avacado');
+INSERT INTO restaurant.product(name, cost, ingredients) VALUES ('mexican pizza', 2.22, 'corn flour, tomatoes, refried beans');
+INSERT INTO restaurant.product(name, cost, ingredients) VALUES ('queso', 2.22, 'cheese, green peppers');
+INSERT INTO restaurant.product(name, cost, ingredients) VALUES ('slushie', 2.22, 'sugar, water');
+INSERT INTO restaurant.product(name, cost, ingredients) VALUES ('taco', 2.22, 'corn flour, beef, tomatoes');

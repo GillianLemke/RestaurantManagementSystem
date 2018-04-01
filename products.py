@@ -86,4 +86,7 @@ class Products:
                 except:
                     db.rollback()
                     return 1
+            else:
+                # doesn't exists
+                return 0
 

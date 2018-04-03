@@ -69,11 +69,10 @@ class Products:
 
         # check to make sure a tuple with that primary key doesn't already exist
         for product in current_products:
-            print(product)
             if name == product["name"]:
                 # remove
                 add_command = "DELETE FROM restaurant.product WHERE name='" + name + "';"
-
+                
                 db = MySQLdb.connect(host="127.0.0.1", user="root", passwd="secret", db="restaurant", port=33306)
                 cursor = db.cursor()
 
@@ -86,7 +85,4 @@ class Products:
                 except:
                     db.rollback()
                     return 1
-            else:
-                # doesn't exists
-                return 0
 

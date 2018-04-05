@@ -38,10 +38,5 @@ def delete_ingredient():
     else:
         return render_template('delete_ingredient.html')
 
-
-@app.route('/suppliers')
-def suppliers():
-    return render_template('suppliers.html')
-
 if __name__ == "__main__":
     app.run()

@@ -35,40 +35,52 @@ class Ingredients:
         ingredient_instance = Ingredients()
         current_ingredients = ingredient_instance.get_ingredients()
 
-        print name
-        print bool(name)
-        # print cost
-        # print bool(name)
-
         # check to make sure a tuple with that primary key doesn't already exist
-       # for product in current_ingredients:
-           # if name == product["name"]:
-               # return 0
+        for ingredient in current_ingredients:
+            if name == ingredient["name"]:
+                return 0
 
         add_command = ""
-        if bool(name):
-            #add_command = "INSERT INTO restaurant.ingredients(name, cost, ingredients) VALUES ('" + name + "', '" + str(cost) + "', '" + ingredients + "');"
-       # elif bool(name) and bool(cost):
-          #  add_command = "INSERT INTO restaurant.ingredients(name, cost) VALUES ('" + name + "', '" + str(cost) + "');"
-       # elif bool(name):
-            add_command = "INSERT INTO restaurant.ingredients(name) VALUES ('" + name + "');"
+        if bool(name): #and bool(cost) and bool(ingredients):
+            #add_command = "INSERT INTO restaurant.product(name, cost, ingredients) VALUES ('" + name + "', '" + str(cost) + "', '" + ingredients + "');"
+        #elif bool(name) and bool(cost):
+         #   add_command = "INSERT INTO restaurant.product(names, cost) VALUES ('" + name + "', '" + str(cost) + "');"
+        #elif bool(name):
+            add_command = "INSERT INTO restaurant.ingredient(ingredient_name) VALUES ('" + name + "');"
 
-        db = MySQLdb.connect("localhost", "root", "password", db="restaurant")
+            db = MySQLdb.connect("localhost","root","password", db="restaurant")
         cursor = db.cursor()
 
         try:
             # Execute the SQL command
             cursor.execute(add_command)
+            db.commit()
             return {'name': name}
+            db.close()
         except:
-            # return 1 if sql error
+            db.rollback()
             return 1
 
+    def delete_ingredient(self, name):
+        ingredient_instance = Ingredients()
+        current_ingredients = ingredient_instance.get_ingredients()
 
-        # TODO: check to make sure ingredients exist
+        # check to make sure a tuple with that primary key doesn't already exist
+        for ingredient in current_ingredients:
+            print(ingredient)
+            if name == ingredient["name"]:
+                # remove
+                add_command = "DELETE FROM restaurant.ingredient WHERE ingredient_name='" + name + "';"
 
+                db = MySQLdb.connect("localhost","root","password", db="restaurant")
+                cursor = db.cursor()
 
-        return -1
-
-ingredient_instance = Ingredients()
-ingredient_instance.get_ingredients()
+                try:
+                    # Execute the SQL command
+                    cursor.execute(add_command)
+                    db.commit()
+                    db.close()
+                    return {'name': name}
+                except:
+                    db.rollback()
+                    return 1

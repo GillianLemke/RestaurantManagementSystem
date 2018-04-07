@@ -1,0 +1,28 @@
+CREATE TABLE `restaurant`.`transaction` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `total`, DOUBLE NOT NULL,
+  `time` DATETIME NULL,
+  `method_of_payment`, ENUM('cash','credit')
+  PRIMARY KEY (`id`));
+
+
+INSERT INTO restaurant.transaction(total, time, method_of_payment) VALUES ( 32.15,2018-04-20 10:01:33 ,'cash');
+INSERT INTO restaurant.transaction(total, time, method_of_payment) VALUES ( 12.98,2018-04-20 10:15:33 ,'credit');
+INSERT INTO restaurant.transaction(total, time, method_of_payment) VALUES ( 11.69,2018-04-20 04:20:00 ,'cash');
+INSERT INTO restaurant.transaction(total, time, method_of_payment) VALUES ( 666.69,2018-04-20 04:20:00 ,'credit');
+INSERT INTO restaurant.transaction(total, time, method_of_payment) VALUES ( 420.00,2018-04-20 04:20:00 ,'cash');
+INSERT INTO restaurant.transaction(total, time, method_of_payment) VALUES ( 4.20,2018-04-20 04:20:00 ,'cash');
+INSERT INTO restaurant.transaction(total, time, method_of_payment) VALUES ( 42.00,2018-04-20 04:20:00 ,'cash');
+INSERT INTO restaurant.transaction(total, time, method_of_payment) VALUES ( 0.42,2018-04-20 04:20:00 ,'cash');
+INSERT INTO restaurant.transaction(total, time, method_of_payment) VALUES ( 7.88,2018-04-20 04:20:00 ,'credit');
+INSERT INTO restaurant.transaction(total, time, method_of_payment) VALUES ( 5.36,2018-04-20 04:20:00 ,'credit');
+INSERT INTO restaurant.transaction(total, time, method_of_payment) VALUES ( 14.33,2018-04-20 04:20:00 ,'credit');
+INSERT INTO restaurant.transaction(total, time, method_of_payment) VALUES ( 22.11,2018-04-20 04:20:33 ,'cash');
+INSERT INTO restaurant.transaction(total, time, method_of_payment) VALUES ( 4.20,2018-04-20 04:22:15,'credit');
+INSERT INTO restaurant.transaction(total, time, method_of_payment) VALUES ( 4.20,2018-04-20 04:22:59 ,'credit');
+INSERT INTO restaurant.transaction(total, time, method_of_payment) VALUES ( 8.40,2018-04-20 04:23:44 ,'credit');
+INSERT INTO restaurant.transaction(total, time, method_of_payment) VALUES ( 31.01,2018-04-20 04:25:02 ,'credit');
+INSERT INTO restaurant.transaction(total, time, method_of_payment) VALUES ( 4.20,2018-04-20 04:25:49 ,'cash');
+INSERT INTO restaurant.transaction(total, time, method_of_payment) VALUES ( 27.89,2018-04-20 04:29:31 ,'cash');
+INSERT INTO restaurant.transaction(total, time, method_of_payment) VALUES ( 4.20,2018-04-20 04:55:41 ,'credit');
+INSERT INTO restaurant.transaction(total, time, method_of_payment) VALUES ( 12.15,2018-04-20 04:56:44 ,'cash');

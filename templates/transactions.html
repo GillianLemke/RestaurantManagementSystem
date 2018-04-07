@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Transactions{% endblock %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+{% block content %}
+<h1 class="page-heading">Transactions</h1>
+<div>
+  <div class="well">
+    <div class="button-container">
+      <button type="button" class="btn btn-success">
+        <a href={{ url_for('add_new_transaction') }}>Add New Transaction</a>
+      </button>
+      <button type="button" class="btn btn-danger">
+        <a href={{ url_for('delete_transaction') }}>Delete Transaction</a>
+      </button>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Total</th>
+          <th>Time</th>
+          <th>Method of Payment</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for transaction in transactions %}
+          <tr>
+            <td>{{transaction.id}}</td>
+            <td>{{transaction.total}}</td>
+            <td>{{transaction.time}}</td>
+            <td>{{transaction.method_of_payment}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

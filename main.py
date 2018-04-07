@@ -1,6 +1,7 @@
 from flask import Flask, request, url_for, redirect, flash
 from flask import render_template
 from products import Products
+from transactions import Transactions
 
 
 app = Flask(__name__)
@@ -44,6 +45,35 @@ def delete_product():
     else:
         return render_template('delete_product.html')
 
+@app.route('/transactions')
+def transactions():
+    transaction_instance = Transactions()
+    data = transaction_instance.get_transactions()
+    return render_template('transactions.html', transactions=data)
+
+@app.route('/add_new_transaction', methods=['GET', 'POST'])
+def add_new_transaction():
+    if request.method == 'POST':
+        name = request.form['transaction-name']
+        cost = request.form['transaction-cost']
+        ingredients = request.form['transaction-ingredients']
+
+        transaction_instance = Transactions()
+        transaction_instance.add_transaction(name, cost, ingredients)
+        return redirect('/transactions')
+    else:
+        return render_template('add_new_transaction.html')
+
+@app.route('/delete_transaction', methods=['GET', 'POST'])
+def delete_transaction():
+    if request.method == 'POST':
+        name = request.form['transcation-name']
+
+        transaction_instance = Transactions()
+        transaction_instance.delete_transaction(name)
+        return redirect('/transactions')
+    else:
+        return render_template('delete_transaction.html')
 
 if __name__ == "__main__":
     app.run()

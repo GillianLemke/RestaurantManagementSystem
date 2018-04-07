@@ -1,15 +1,30 @@
 from flask import Flask, request, url_for, redirect, flash
 from flask import render_template
 from products import Products
+from login import Login
 
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
 
 
-@app.route('/')
-def home(name=None):
-    return render_template('home.html', name=name)
+@app.route('/', methods=['GET', 'POST'])
+def home():
+    print(request.method)
+    if request.method == 'POST':
+        print('in post')
+        name = request.form['employee-name']
+        number = request.form['employee-number']
+
+        print(name, number)
+        login_instance = Login()
+        print(login_instance.login_success(name, number))
+        if login_instance.login_success(name, number):
+            return render_template('home.html')
+        else:
+            return render_template('login.html')
+    else:
+        return render_template('login.html')
 
 
 @app.route('/products')

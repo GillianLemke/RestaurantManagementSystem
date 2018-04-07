@@ -10,15 +10,11 @@ app.config['DEBUG'] = True
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    print(request.method)
     if request.method == 'POST':
-        print('in post')
         name = request.form['employee-name']
         number = request.form['employee-number']
 
-        print(name, number)
         login_instance = Login()
-        print(login_instance.login_success(name, number))
         if login_instance.login_success(name, number):
             return render_template('home.html')
         else:

@@ -37,42 +37,51 @@ class Suppliers:
         supplier_instance = Suppliers()
         current_suppliers = supplier_instance.get_suppliers()
 
-        print name
-        print bool(name)
-        print contact_name
-        print bool(name)
-        print contact_phone
-        print bool(contact_phone)
-
         # check to make sure a tuple with that primary key doesn't already exist
-       # for product in current_ingredients:
-           # if name == product["name"]:
-               # return 0
+        for supplier in current_suppliers:
+            if name == supplier["name"]:
+                return 0
 
         add_command = ""
-        #if bool(name) and bool(contact_name) and bool(contact_phone):
-         #   add_command = "INSERT INTO restaurant.suppliers(name, contact_name, contact_number) VALUES ('" + name + "', '" + contact_name + "', '" + contact_number + "');"
-       # elif bool(name) and bool(cost):
-          #  add_command = "INSERT INTO restaurant.ingredients(name, cost) VALUES ('" + name + "', '" + str(cost) + "');"
-       # elif bool(name):
-            #add_command = "INSERT INTO restaurant.suppliers(name) VALUES ('" + name + "');"
+        if bool(name) and bool(contact_name) and bool(contact_phone):
+            add_command = "INSERT INTO restaurant.suppliers(name, contact_name, contact_phone) VALUES ('" + name + "', '" + contact_name + "', '" + contact_phone + "');"
+        elif bool(name) and bool(contact_name):
+            add_command = "INSERT INTO restaurant.suppliers(name, cost) VALUES ('" + name + "', '" + str(contact_name) + "');"
+        elif bool(name):
+            add_command = "INSERT INTO restaurant.suppliers(name) VALUES ('" + name + "');"
 
-        db = MySQLdb.connect("localhost", "root", "password", db="restaurant")
+        db = MySQLdb.connect("localhost","root","password", db="restaurant")
         cursor = db.cursor()
 
         try:
             # Execute the SQL command
             cursor.execute(add_command)
-            return {'name': name}
+            db.commit()
+            return {'name': name, 'contact_name': contact_name, 'contact_phone': contact_phone}
+            db.close()
         except:
-            # return 1 if sql error(s)
+            db.rollback()
             return 1
 
+    def delete_supplier(self, name):
+        supplier_instance = Suppliers()
+        current_suppliers = supplier_instance.get_suppliers()
 
-        # TODO: check to make sure ingredients exist
+        # check to make sure a tuple with that primary key doesn't already exist
+        for supplier in current_suppliers:
+            if name == supplier["name"]:
+                # remove
+                add_command = "DELETE FROM restaurant.suppliers WHERE name='" + name + "';"
 
+                db = MySQLdb.connect("localhost","root","password", db="restaurant")
+                cursor = db.cursor()
 
-        return -1
-
-ingredient_instance = Suppliers()
-ingredient_instance.get_suppliers()
+                try:
+                    # Execute the SQL command
+                    cursor.execute(add_command)
+                    db.commit()
+                    db.close()
+                    return {'name': name}
+                except:
+                    db.rollback()
+                    return 1

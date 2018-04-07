@@ -26,9 +26,7 @@ def add_new_supplier():
         contact_phone = request.form['supplier-contact-phone']
 
         suppliers_instance = Suppliers()
-        suppliers_instance.add_supplier(name)
-        suppliers_instance.add_supplier(contact_name)
-        suppliers_instance.add_supplier(contact_phone)
+        suppliers_instance.add_supplier(name, contact_name, contact_phone)
         return redirect('/suppliers')
     else:
         return render_template('add_new_supplier.html')
@@ -67,7 +65,7 @@ def add_new_product():
 @app.route('/delete_product', methods=['GET', 'POST'])
 def delete_product():
     if request.method == 'POST':
-        name = request.form['product-name']
+        name = request.form['supplier-name']
 
         product_instance = Products()
         product_instance.delete_product(name)

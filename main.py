@@ -1,4 +1,4 @@
-from flask import Flask, request, redirect
+from flask import Flask, request, url_for, redirect, flash
 from flask import render_template
 from suppliers import Suppliers
 from products import Products
@@ -12,13 +12,37 @@ app.config['DEBUG'] = True
 def home(name=None):
     return render_template('home.html', name=name)
 
-
 @app.route('/suppliers')
 def suppliers():
     suppliers_instance = Suppliers()
     data = suppliers_instance.get_suppliers()
     return render_template('suppliers.html', suppliers=data)
 
+@app.route('/add_new_supplier', methods=['GET', 'POST'])
+def add_new_supplier():
+    if request.method == 'POST':
+        name = request.form['supplier-name']
+        contact_name = request.form['supplier-contact-name']
+        contact_phone = request.form['supplier-contact-phone']
+
+        suppliers_instance = Suppliers()
+        suppliers_instance.add_supplier(name)
+        suppliers_instance.add_supplier(contact_name)
+        suppliers_instance.add_supplier(contact_phone)
+        return redirect('/suppliers')
+    else:
+        return render_template('add_new_supplier.html')
+
+@app.route('/delete_supplier', methods=['GET', 'POST'])
+def delete_supplier():
+    if request.method == 'POST':
+        name = request.form['supplier-name']
+
+        suppliers_instance = Suppliers()
+        suppliers_instance.delete_supplier(name)
+        return redirect('/suppliers')
+    else:
+        return render_template('delete_supplier.html')
 
 @app.route('/products')
 def products():
@@ -39,7 +63,6 @@ def add_new_product():
         return redirect('/products')
     else:
         return render_template('add_new_product.html')
-
 
 @app.route('/delete_product', methods=['GET', 'POST'])
 def delete_product():

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}Add Employee{% endblock %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+{% block content %}
+<h1 class="page-heading">Add Employee</h1>
+<div>
+  <div class="well form-container">
+    <form action="/add_new_employee" method="post">
+      <div class="form-group row">
+        <label class="col-2 col-form-label">Name</label>
+        <div class="col-10">
+          <input class="form-control" type="text" value="" name="employee-name">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-2 col-form-label">ID</label>
+        <div class="col-10">
+          <input class="form-control" type="number" value="" name="employee-id">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-2 col-form-label">Wage</label>
+        <div class="col-10">
+          <input class="form-control" type="text" value="" name="employee-wage">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-2 col-form-label">Status</label>
+        <div class="col-10">
+          <input class="form-control" type="text" value="" name="employee-status">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-2 col-form-label">Location</label>
+        <div class="col-10">
+          <input class="form-control" type="text" value="" name="employee-location">
+        </div>
+      </div>
+    </div>
+    <div class="button-container add-submit">
+      <button type="submit" class="btn btn-success">
+        Add New Employee
+      </button>
+    </div>
+  </form>
+</div>
+{% endblock %}

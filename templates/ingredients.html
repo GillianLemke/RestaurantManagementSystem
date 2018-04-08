@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Ingredients{% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+
+<h1 class="page-heading">Ingredients</h1>
+<div>
+  <div class="well">
+    <div class="button-container">
+      <button type="button" class="btn btn-success">
+        <a href={{ url_for('add_new_ingredient') }}>Add New Ingredient</a>
+      </button>
+      <button type="button" class="btn btn-danger">
+        <a href={{ url_for('delete_ingredient') }}>Delete Ingredient</a>
+      </button>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for ingredient in ingredients %}
+          <tr>
+            <td>{{ingredient.name}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,23 +1,23 @@
 {% extends "base.html" %}
-{% block title %}Delete Product{% endblock %}
+{% block title %}Delete Employee{% endblock %}
 {% block head %}
 {{ super() }}
 {% endblock %}
 {% block content %}
-<h1 class="page-heading">Delete Product</h1>
+<h1 class="page-heading">Delete Employee</h1>
 <div>
   <div class="well form-container">
-    <form action="/delete_product" method="post">
+    <form action="/delete_employee" method="post">
       <div class="form-group row">
-        <label class="col-2 col-form-label">Name</label>
+        <label class="col-2 col-form-label">ID</label>
         <div class="col-10">
-          <input class="form-control" type="text" value="" name="product-name">
+          <input class="form-control" type="text" value="" name="employee-id">
         </div>
       </div>
     </div>
     <div class="button-container delete-submit">
       <button type="submit" class="btn btn-danger">
-        Delete Product
+        Delete Employee
       </button>
     </div>
   </form>

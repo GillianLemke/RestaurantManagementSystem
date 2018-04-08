@@ -1,12 +1,13 @@
-CREATE TABLE `restaurant`.`ingredient` (
+CREATE TABLE `restaurant`.`ingredients` (
   `name` VARCHAR(40) NOT NULL,
   PRIMARY KEY (`name`)
 
-  INSERT INTO restaurant.ingredient(name) VALUES ('Beef');
-  INSERT INTO restaurant.ingredient(name) VALUES ('Chicken');
-  INSERT INTO restaurant.ingredient(name) VALUES ('Hard Wrap');
-  INSERT INTO restaurant.ingredient(name) VALUES ('Lettuce');
-  INSERT INTO restaurant.ingredient(name) VALUES ('Soft Wrap');
-  INSERT INTO restaurant.ingredient(name) VALUES ('Sour Cream');
-  INSERT INTO restaurant.ingredient(name) VALUES ('Tomatoes');
+  INSERT INTO restaurant.ingredients(name) VALUES ('Beef');
+  INSERT INTO restaurant.ingredients(name) VALUES ('Chicken');
+  INSERT INTO restaurant.ingredients(name) VALUES ('Hard Wrap');
+  INSERT INTO restaurant.ingredients(name) VALUES ('Lettuce');
+  INSERT INTO restaurant.ingredients(name) VALUES ('Soft Wrap');
+  INSERT INTO restaurant.ingredients(name) VALUES ('Sour Cream');
+  INSERT INTO restaurant.ingredients(name) VALUES ('Tomatoes');
+
 

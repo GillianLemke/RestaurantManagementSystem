@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Ingredients{% endblock %}
+{% block title %}Suppliers{% endblock %}
 {% block head %}
     {{ super() }}
 {% endblock %}
@@ -8,16 +8,28 @@
 <h1 class="page-heading">Suppliers</h1>
 <div>
   <div class="well">
+      <div class="button-container">
+      <button type="button" class="btn btn-success">
+        <a href={{ url_for('add_new_supplier') }}>Add New Supplier</a>
+      </button>
+      <button type="button" class="btn btn-danger">
+        <a href={{ url_for('delete_supplier') }}>Delete Supplier</a>
+      </button>
+    </div>
     <table class="table">
       <thead>
         <tr>
           <th>Name</th>
+          <th>Contact Name</th>
+          <th>Contact Phone</th>
         </tr>
       </thead>
       <tbody>
         {% for supplier in suppliers %}
           <tr>
             <td>{{supplier.name}}</td>
+            <td>{{supplier.contact_name}}</td>
+            <td>{{supplier.contact_phone}}</td>
           </tr>
         {% endfor %}
       </tbody>

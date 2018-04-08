@@ -10,3 +10,4 @@ CREATE TABLE `restaurant`.`ingredients` (
   INSERT INTO restaurant.ingredients(name) VALUES ('Sour Cream');
   INSERT INTO restaurant.ingredients(name) VALUES ('Tomatoes');
 
+

@@ -5,6 +5,97 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
+
+.login-page {
+  width: 360px;
+  padding: 8% 0 0;
+  margin: auto;
+}
+.form {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4CAF50;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.form button:hover,.form button:active,.form button:focus {
+  background: #43A047;
+}
+.form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+.form .message a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+.form .register-form {
+  display: none;
+}
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 300px;
+  margin: 0 auto;
+}
+.container:before, .container:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.container .info {
+  margin: 50px auto;
+  text-align: center;
+}
+.container .info h1 {
+  margin: 0 0 15px;
+  padding: 0;
+  font-size: 36px;
+  font-weight: 300;
+  color: #1a1a1a;
+}
+.container .info span {
+  color: #4d4d4d;
+  font-size: 12px;
+}
+.container .info span a {
+  color: #000000;
+  text-decoration: none;
+}
+.container .info span .fa {
+  color: #EF3B3A;
+}
+
+
 html {
   font-family: sans-serif;
   line-height: 1.15;
@@ -33,43 +124,6 @@ section {
   bottom: 0;
   text-align: center;
   color: rgba(0, 0, 0, 0.9);
-}
-
-.page-heading {
-  margin-top: 30px;
-  margin-bottom: -40px;
-  margin-left: 50px;
-}
-
-.well {
-  margin-left:50px;
-  margin-right:50px;
-  margin-bottom: 100px;
-}
-
-.form-container {
-  margin-top: 70px;
-  margin-bottom: 30px;
-}
-
-.button-container {
-  height: 40px;
-  right: 40px;
-  float: right;
-}
-
-.add-submit, .delete-submit {
-  margin-right: 50px;
-}
-
-.sticky-header {
-  position: fixed !important;
-  width: 100%;
-  top: 0;
-}
-
-#content {
-  margin-top: 80px;
 }
 
 h1 {
@@ -313,7 +367,7 @@ template {
   }
   a,
   a:visited {
-    text-decoration: none;
+    text-decoration: underline;
   }
   abbr[title]::after {
     content: " (" attr(title) ")";
@@ -445,13 +499,13 @@ blockquote {
 }
 
 a {
-  color: #fff;
+  color: #0275d8;
   text-decoration: none;
 }
 
 a:focus, a:hover {
-  color: #fff;
-  text-decoration: none;
+  color: #014c8c;
+  text-decoration: underline;
 }
 
 a:not([href]):not([tabindex]) {
@@ -2133,7 +2187,7 @@ pre code {
 .table td {
   padding: 0.75rem;
   vertical-align: top;
-  border: 1px solid #eceeef;
+  border-top: 1px solid #eceeef;
 }
 
 .table thead th {
@@ -4022,7 +4076,6 @@ tbody.collapse.show {
   background: transparent;
   border: 1px solid transparent;
   border-radius: 0.25rem;
-  margin-right: 35px;
 }
 
 .navbar-toggler:focus, .navbar-toggler:hover {
@@ -4365,10 +4418,6 @@ tbody.collapse.show {
 .navbar-light .navbar-brand,
 .navbar-light .navbar-toggler {
   color: rgba(0, 0, 0, 0.9);
-}
-
-.navbar-brand {
-  margin-left: 35px;
 }
 
 .navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:hover,

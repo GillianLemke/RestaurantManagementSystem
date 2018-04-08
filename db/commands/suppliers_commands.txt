@@ -1,0 +1,11 @@
+CREATE TABLE `restaurant`.`suppliers` (
+  `name` VARCHAR(40) NOT NULL,
+  `contact_name` VARCHAR(40) NOT NULL,
+  `contact_phone`VARCHAR(20),
+  PRIMARY KEY (`name`)
+
+  INSERT INTO restaurant.suppliers(name, contact_name, contact_phone) VALUES ('Tyson Foods, Inc.','James Bond','084-367-4756');
+  INSERT INTO restaurant.suppliers(name, contact_name, contact_phone) VALUES ('Hogwarts Gardens.','James Potter','734-123-9876');
+  INSERT INTO restaurant.suppliers(name, contact_name, contact_phone) VALUES ('National Foods Corp.','Emma Joy','923-502-1029');
+  INSERT INTO restaurant.suppliers(name, contact_name, contact_phone) VALUES ('Kangaroo Island','Zachary Michael','036-892-3647');
+

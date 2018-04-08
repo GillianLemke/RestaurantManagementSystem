@@ -1,5 +1,6 @@
 from flask import Flask, request, url_for, redirect, flash
 from flask import render_template
+from ingredients import Ingredients
 from products import Products
 from login import Login
 from employee import Employees
@@ -25,38 +26,34 @@ def home():
         return render_template('login.html')
 
 
-@app.route('/products')
-def products():
-    product_instance = Products()
-    data = product_instance.get_products()
-    return render_template('products.html', products=data)
+@app.route('/ingredients')
+def ingredients():
+    ingredients_instance = Ingredients()
+    data = ingredients_instance.get_ingredients()
+    return render_template('ingredients.html', ingredients=data)
 
-
-@app.route('/add_new_product', methods=['GET', 'POST'])
-def add_new_product():
+@app.route('/add_new_ingredient', methods=['GET', 'POST'])
+def add_new_ingredient():
     if request.method == 'POST':
-        name = request.form['product-name']
-        cost = request.form['product-cost']
-        ingredients = request.form['product-ingredients']
+        name = request.form['ingredient-name']
 
-        product_instance = Products()
-        product_instance.add_product(name, cost, ingredients)
-        return redirect('/products')
+        ingredients_instance = Ingredients()
+        ingredients_instance.add_ingredient(name)
+        return redirect('/ingredients')
     else:
-        return render_template('add_new_product.html')
+        return render_template('add_new_ingredient.html')
 
 
-@app.route('/delete_product', methods=['GET', 'POST'])
-def delete_product():
+@app.route('/delete_ingredient', methods=['GET', 'POST'])
+def delete_ingredient():
     if request.method == 'POST':
-        name = request.form['product-name']
+        name = request.form['ingredient-name']
 
-        product_instance = Products()
-        product_instance.delete_product(name)
-        return redirect('/products')
+        ingredients_instance = Ingredients()
+        ingredients_instance.delete_ingredient(name)
+        return redirect('/ingredients')
     else:
-        return render_template('delete_product.html')
-
+        return render_template('delete_ingredient.html')
 
 @app.route('/employees')
 def employees():

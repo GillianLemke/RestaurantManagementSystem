@@ -3,6 +3,7 @@ from flask import render_template
 from products import Products
 from login import Login
 from employee import Employees
+from locations import Locations
 
 
 app = Flask(__name__)
@@ -92,6 +93,40 @@ def delete_employee():
         return redirect('/employees')
     else:
         return render_template('delete_employee.html')
+
+
+@app.route('/locations')
+def locations():
+    location_instance = Locations()
+    data = location_instance.get_locations()
+    return render_template('locations.html', locations=data)
+
+
+@app.route('/add_new_location', methods=['GET', 'POST'])
+def add_new_location():
+    if request.method == 'POST':
+        address = request.form['location-address']
+        type = request.form['location-type']
+        hours = request.form['location-hours']
+        manager = request.form['location-manager']
+
+        location_instance = Locations()
+        location_instance.add_location(address, type, hours, manager)
+        return redirect('/locations')
+    else:
+        return render_template('add_new_location.html')
+
+
+@app.route('/delete_location', methods=['GET', 'POST'])
+def delete_location():
+    if request.method == 'POST':
+        address = request.form['location-address']
+
+        location_instance = Locations()
+        location_instance.delete_location(address)
+        return redirect('/locations')
+    else:
+        return render_template('delete_location.html')
 
 
 if __name__ == "__main__":

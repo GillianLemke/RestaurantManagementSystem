@@ -78,9 +78,9 @@ def add_new_transaction():
         return redirect('/transactions')
     else:
         employee_instance = Employees()
-        employees = employee_instance.get_Employees()
+        employees = employee_instance.get_employees()
         location_instance= Locations()
-        locations = location_instance.get_Locations()
+        locations = location_instance.get_locations()
         return render_template('add_new_transaction.html', employees = employees, locations= locations)
 
 @app.route('/delete_transaction', methods=['GET', 'POST'])

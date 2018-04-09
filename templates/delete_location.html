@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Add Location{% endblock %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+{% block content %}
+<h1 class="page-heading">Delete Location</h1>
+<div>
+  <div class="well form-container">
+    <form action="/delete_location" method="post">
+      <div class="form-group row">
+        <label class="col-2 col-form-label">Address</label>
+        <div class="col-10">
+          <input class="form-control" type="text" value="" name="location-address">
+        </div>
+      </div>
+    </div>
+    <div class="button-container delete-submit">
+      <button type="submit" class="btn btn-danger">
+        Delete Location
+      </button>
+    </div>
+  </form>
+</div>
+{% endblock %}

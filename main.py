@@ -54,23 +54,27 @@ def transactions():
 @app.route('/add_new_transaction', methods=['GET', 'POST'])
 def add_new_transaction():
     if request.method == 'POST':
-        name = request.form['transaction-name']
-        cost = request.form['transaction-cost']
-        ingredients = request.form['transaction-ingredients']
-
+        total = request.form['transaction-total']
+        method_of_payment = request.form['transaction-method']
+        locationID = request.form['transaction-loc-id']
+        employeeID = request.form['transaction-emp-id']
         transaction_instance = Transactions()
-        transaction_instance.add_transaction(name, cost, ingredients)
+        transaction_instance.add_transaction(total, method_of_payment,locationID,employeeID)
         return redirect('/transactions')
     else:
-        return render_template('add_new_transaction.html')
+        employee_instance = Employees()
+        employees = employee_instance.get_Employees()
+        location_instance= Locations()
+        locations = location_instance.get_Locations()
+        return render_template('add_new_transaction.html', employees = employees, locations= locations)
 
 @app.route('/delete_transaction', methods=['GET', 'POST'])
 def delete_transaction():
     if request.method == 'POST':
-        name = request.form['transcation-name']
+        id = request.form['transcation-id']
 
         transaction_instance = Transactions()
-        transaction_instance.delete_transaction(name)
+        transaction_instance.delete_transaction(id)
         return redirect('/transactions')
     else:
         return render_template('delete_transaction.html')

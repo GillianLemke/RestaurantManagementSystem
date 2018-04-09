@@ -27,7 +27,9 @@ class Transactions:
                 total = row[1]
                 time = row[2]
                 method_of_payment=row[3]
-                transactions_from_db.append({'id': id, 'total': total, 'time': time, 'method_of_payment': method_of_payment})
+                locationID = row[4]
+                employeeID = row[5]
+                transactions_from_db.append({'id': id, 'total': total, 'time': time, 'method_of_payment': method_of_payment, 'locationID': locationID, 'employeeID': employeeID})
         except:
             return 0
 
@@ -35,12 +37,12 @@ class Transactions:
 
         return transactions_from_db
 
-    def add_transaction(self, total, method_of_payment):
+    def add_transaction(self, total, method_of_payment, locationID, employeeID):
         transaction_instance = Transactions()
         current_transactions = transaction_instance.get_transactions()
         time = datetime.datetime.now()
 
-        add_command = "INSERT INTO restaurant.transaction(total, time, method_of_payment) VALUES (" + total + ", " + time + ", '" + method_of_payment + "');"
+        add_command = "INSERT INTO restaurant.transaction(total, time, method_of_payment, employeeID, LocationID) VALUES (" + total + ", " + time + ", '" + method_of_payment + ", " + locationID + ", " + employeeID + "');"
         db = MySQLdb.connect(host="127.0.0.1", user="root", passwd="secret", db="restaurant", port=33306)
         cursor = db.cursor()
 

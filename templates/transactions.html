@@ -22,6 +22,8 @@
           <th>Total</th>
           <th>Time</th>
           <th>Method of Payment</th>
+          <th>Location ID</th>
+          <th>Employee ID</th>
         </tr>
       </thead>
       <tbody>
@@ -31,6 +33,8 @@
             <td>{{transaction.total}}</td>
             <td>{{transaction.time}}</td>
             <td>{{transaction.method_of_payment}}</td>
+            <td>{{transaction.location}}</td>
+            <td>{{transaction.employee}}</td>
           </tr>
         {% endfor %}
       </tbody>

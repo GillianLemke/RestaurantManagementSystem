@@ -2,8 +2,12 @@ CREATE TABLE `restaurant`.`transaction` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `total`, DOUBLE NOT NULL,
   `time` DATETIME NULL,
-  `method_of_payment`, ENUM('cash','credit')
-  PRIMARY KEY (`id`));
+  `method_of_payment` ENUM('cash','credit'),
+  `locationID` INT NULL,
+  `employeeID` INT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (locationID) REFERENCES,
+  FOREIGN KEY (employeeID) REFERENCES );
 
 
 INSERT INTO restaurant.transaction(total, time, method_of_payment) VALUES ( 32.15,2018-04-20 10:01:33 ,'cash');

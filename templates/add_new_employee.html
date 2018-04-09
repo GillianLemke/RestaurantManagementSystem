@@ -35,7 +35,11 @@
       <div class="form-group row">
         <label class="col-2 col-form-label">Location</label>
         <div class="col-10">
-          <input class="form-control" type="text" value="" name="employee-location">
+          <select class="form-control" type="text" value="" name="employee-location">
+            {% for location in locations %}
+            <option value="location.address">{{location.address}}</option>
+            {% endfor %}
+          </select>
         </div>
       </div>
     </div>

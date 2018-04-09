@@ -20,12 +20,14 @@
       <thead>
         <tr>
           <th>Name</th>
+          <th>Supplier</th>
         </tr>
       </thead>
       <tbody>
         {% for ingredient in ingredients %}
           <tr>
             <td>{{ingredient.name}}</td>
+            <td>{{ingredient.supplierName}}</td>
           </tr>
         {% endfor %}
       </tbody>

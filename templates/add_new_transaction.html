@@ -28,7 +28,7 @@
       <div class="col-10">
         <select class="form-control" type="text" value="" name="transaction-loc-id">
           {% for location in locations %}
-          <option value = "{{location.id}}">{{location.name}}</option>
+          <option value = "{{location.address}}">{{location.address}}</option>
           {% endfor %}
         </select>
       </div>

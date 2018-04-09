@@ -25,7 +25,8 @@ class Suppliers:
                 name = row[0]
                 contact_name = row[1]
                 contact_phone = row[2]
-                suppliers_from_db.append({'name': name, 'contact_name': contact_name, 'contact_phone': contact_phone})
+                locationId = row[3]
+                suppliers_from_db.append({'name': name, 'contact_name': contact_name, 'contact_phone': contact_phone, 'locationId': locationId})
         except:
             return 0
 
@@ -33,7 +34,7 @@ class Suppliers:
 
         return suppliers_from_db
 
-    def add_supplier(self, name, contact_name, contact_phone):
+    def add_supplier(self, name, contact_name, contact_phone, locationId):
         supplier_instance = Suppliers()
         current_suppliers = supplier_instance.get_suppliers()
 
@@ -42,13 +43,7 @@ class Suppliers:
             if name == supplier["name"]:
                 return 0
 
-        add_command = ""
-        if bool(name) and bool(contact_name) and bool(contact_phone):
-            add_command = "INSERT INTO restaurant.suppliers(name, contact_name, contact_phone) VALUES ('" + name + "', '" + contact_name + "', '" + contact_phone + "');"
-        elif bool(name) and bool(contact_name):
-            add_command = "INSERT INTO restaurant.suppliers(name, cost) VALUES ('" + name + "', '" + str(contact_name) + "');"
-        elif bool(name):
-            add_command = "INSERT INTO restaurant.suppliers(name) VALUES ('" + name + "');"
+        add_command ="INSERT INTO restaurant.suppliers(name, contact_name, contact_phone) VALUES ('" + name + "', '" + contact_name + "', '" + contact_phone + ", " + locationId + "');"
 
         db = MySQLdb.connect("localhost","root","password", db="restaurant")
         cursor = db.cursor()

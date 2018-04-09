@@ -6,8 +6,8 @@ CREATE TABLE `restaurant`.`transaction` (
   `locationID` INT NULL,
   `employeeID` INT NULL,
   PRIMARY KEY (`id`),
-  FOREIGN KEY (locationID) REFERENCES,
-  FOREIGN KEY (employeeID) REFERENCES );
+  FOREIGN KEY (locationID) REFERENCES location(id),
+  FOREIGN KEY (employeeID) REFERENCES employee(id));
 
 
 INSERT INTO restaurant.transaction(total, time, method_of_payment) VALUES ( 32.15,2018-04-20 10:01:33 ,'cash');

@@ -53,7 +53,6 @@ def add_new_product():
 def delete_product():
     if request.method == 'POST':
         name = request.form['product-name']
-
         product_instance = Products()
         product_instance.delete_product(name)
         return redirect('/products')
@@ -87,7 +86,6 @@ def add_new_transaction():
 def delete_transaction():
     if request.method == 'POST':
         id = request.form['transcation-id']
-
         transaction_instance = Transactions()
         transaction_instance.delete_transaction(id)
         return redirect('/transactions')
@@ -104,12 +102,14 @@ def ingredients():
 def add_new_ingredient():
     if request.method == 'POST':
         name = request.form['ingredient-name']
-
+        supplierName= request.form['ingredient-sup-name']
         ingredients_instance = Ingredients()
-        ingredients_instance.add_ingredient(name)
+        ingredients_instance.add_ingredient(name, supplierName)
         return redirect('/ingredients')
     else:
-        return render_template('add_new_ingredient.html')
+        supplier_instance = Suppliers()
+        suppliers = supplier_instance.get_suppliers()
+        return render_template('add_new_ingredient.html', suppliers = suppliers)
 
 
 @app.route('/delete_ingredient', methods=['GET', 'POST'])
@@ -138,12 +138,13 @@ def add_new_employee():
         wage = request.form['employee-wage']
         status = request.form['employee-status']
         location = request.form['employee-location']
-
         employee_instance = Employees()
         employee_instance.add_employee(name, id, wage, status, location)
         return redirect('/employees')
     else:
-        return render_template('add_new_employee.html')
+        location_instance = Locations()
+        locations = location_instance.get_locations()
+        return render_template('add_new_employee.html', locations= locations)
 
 
 @app.route('/delete_employee', methods=['GET', 'POST'])
@@ -171,12 +172,14 @@ def add_new_supplier():
         name = request.form['supplier-name']
         contact_name = request.form['supplier-contact-name']
         contact_phone = request.form['supplier-contact-phone']
-
+        locationId=request.form['supplier-loc-id']
         suppliers_instance = Suppliers()
-        suppliers_instance.add_supplier(name, contact_name, contact_phone)
+        suppliers_instance.add_supplier(name, contact_name, contact_phone,locationId)
         return redirect('/suppliers')
     else:
-        return render_template('add_new_supplier.html')
+        location_instance = Locations()
+        locations = location_instance.get_locations()
+        return render_template('add_new_supplier.html', locatons=locations)
 
 @app.route('/delete_supplier', methods=['GET', 'POST'])
 def delete_supplier():
@@ -203,12 +206,13 @@ def add_new_location():
         type = request.form['location-type']
         hours = request.form['location-hours']
         manager = request.form['location-manager']
-
         location_instance = Locations()
         location_instance.add_location(address, type, hours, manager)
         return redirect('/locations')
     else:
-        return render_template('add_new_location.html')
+        manage_instance = Employees()
+        managers = manage_instance.get_managers()
+        return render_template('add_new_location.html', managers = managers)
 
 @app.route('/delete_location', methods=['GET', 'POST'])
 def delete_location():

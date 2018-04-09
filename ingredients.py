@@ -23,7 +23,8 @@ class Ingredients:
 
             for row in results:
                 name = row[0]
-                ingredients_from_db.append({'name': name})
+                supplierName= row[1]
+                ingredients_from_db.append({'name': name 'supplierName': supplierName})
         except:
             return 0
 
@@ -31,7 +32,7 @@ class Ingredients:
 
         return ingredients_from_db
 
-    def add_ingredient(self, name):
+    def add_ingredient(self, name, supplierName):
         ingredient_instance = Ingredients()
         current_ingredients = ingredient_instance.get_ingredients()
 
@@ -46,7 +47,7 @@ class Ingredients:
         #elif bool(name) and bool(cost):
          #   add_command = "INSERT INTO restaurant.product(names, cost) VALUES ('" + name + "', '" + str(cost) + "');"
         #elif bool(name):
-            add_command = "INSERT INTO restaurant.ingredient(ingredient_name) VALUES ('" + name + "');"
+            add_command = "INSERT INTO restaurant.ingredient(ingredient_name) VALUES ('" + name + ", " + supplierName + "');"
 
             db = MySQLdb.connect("localhost","root","password", db="restaurant")
         cursor = db.cursor()

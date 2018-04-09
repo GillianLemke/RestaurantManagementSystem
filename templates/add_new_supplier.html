@@ -26,7 +26,16 @@
           <input class="form-control" type="text" value="" name="supplier-contact-phone">
         </div>
       </div>
-    </div>
+      <div class="form-group row">
+          <label class="col-2 col-form-label">Location ID</label>
+          <div class="col-10">
+            <select class="form-control" type="text" value="" name="supplier-loc-id">
+              {% for location in locations %}
+              <option value = "{{location.address}}">{{location.address}}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
     <div class="button-container add-submit">
       <button type="submit" class="btn btn-success">
         Add New Supplier

@@ -5,6 +5,37 @@ import MySQLdb
 
 class Employees:
 
+    def get_managers(self):
+        
+        db = MySQLdb.connect(host="127.0.0.1", user="root", passwd="secret", db="restaurant", port=33306)
+        cursor = db.cursor()
+
+        get_all = "SELECT * FROM employee WHERE status = 'MANAGEMENT';"
+
+        employees_from_db = []
+
+        try:
+            # Execute the SQL command
+            cursor.execute(get_all)
+
+            # Fetch all the rows in a list of lists.
+            results = cursor.fetchall()
+
+            for row in results:
+                name = row[0]
+                id = row[1]
+                wage = row[2]
+                status = row[3]
+                location = row[4]
+                employees_from_db.append({'name': name, 'id': id, 'wage': wage, 'status': status, 'location': location})
+        except:
+            return 0
+
+        db.close()
+
+        return employees_from_db
+
+
     def get_employees(self):
         # Open database connection
         db = MySQLdb.connect(host="127.0.0.1", user="root", passwd="secret", db="restaurant", port=33306)

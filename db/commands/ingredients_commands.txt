@@ -1,6 +1,9 @@
 CREATE TABLE `restaurant`.`ingredients` (
   `name` VARCHAR(40) NOT NULL,
-  PRIMARY KEY (`name`)
+  `supplierName` VARCHAR(40) NOT NULL,
+  PRIMARY KEY (`name`),
+  FOREIGN KEY (supplierName) REFERENCES suppliers(name)
+  );
 
   INSERT INTO restaurant.ingredients(name) VALUES ('Beef');
   INSERT INTO restaurant.ingredients(name) VALUES ('Chicken');

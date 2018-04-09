@@ -1,8 +1,10 @@
 CREATE TABLE `restaurant`.`suppliers` (
   `name` VARCHAR(40) NOT NULL,
   `contact_name` VARCHAR(40) NOT NULL,
-  `contact_phone`VARCHAR(20),
-  PRIMARY KEY (`name`)
+  `contact_phone` VARCHAR(20),
+  `locationId` VARCHAR (100) NULL,
+  PRIMARY KEY (`name`),
+  FORIEGN KEY (`locationId) REFERENCES location('address') );
 
   INSERT INTO restaurant.suppliers(name, contact_name, contact_phone) VALUES ('Tyson Foods, Inc.','James Bond','084-367-4756');
   INSERT INTO restaurant.suppliers(name, contact_name, contact_phone) VALUES ('Hogwarts Gardens','James Potter','734-123-9876');

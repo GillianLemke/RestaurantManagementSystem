@@ -29,7 +29,11 @@
       <div class="form-group row">
         <label class="col-2 col-form-label">Manager ID</label>
         <div class="col-10">
-          <input class="form-control" type="number" value="" name="location-manager">
+          <select class="form-control" type="number" value="" name="location-manager">
+              {% for manager in managers %}
+              <option value="manager.id">{{manager.name}}</option>
+              {% endfor %}
+            </select>            
         </div>
       </div>
     </div>

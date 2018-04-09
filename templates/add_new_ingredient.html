@@ -14,6 +14,16 @@
           <input class="form-control" type="text" value="" name="ingredient-name">
         </div>
       </div>
+      <div class="form-group row">
+          <label class="col-2 col-form-label">Supplier</label>
+          <div class="col-10">
+            <select class="form-control" type="text" value="" name="ingredient-sup-name">
+                {% for supplier in suppliers %}
+                <option value = "{{supplier.name}}">{{supplier.name}}</option>
+                {% endfor %}
+            </select>
+          </div>
+        </div>
   </div>
     <div class="button-container add-submit">
       <button type="submit" class="btn btn-success">

@@ -24,7 +24,7 @@ class Ingredients:
             for row in results:
                 name = row[0]
                 supplierName= row[1]
-                ingredients_from_db.append({'name': name 'supplierName': supplierName})
+                ingredients_from_db.append({'name': name, 'supplierName': supplierName})
         except:
             return 0
 
@@ -66,7 +66,7 @@ class Ingredients:
         ingredient_instance = Ingredients()
         current_ingredients = ingredient_instance.get_ingredients()
 
-        # check to make sure a tuple with that primary key doesn't already exist
+        # check to make sure a tuple with thapyt primary key doesn't already exist
         for ingredient in current_ingredients:
             print(ingredient)
             if name == ingredient["name"]:

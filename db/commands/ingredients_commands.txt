@@ -1,6 +1,6 @@
 CREATE TABLE `restaurant`.`ingredients` (
   `name` VARCHAR(40) NOT NULL,
-  `supplierName` VARCHAR(40) NOT NULL,
+  `supplierName` VARCHAR(40) NULL,
   PRIMARY KEY (`name`),
   FOREIGN KEY (supplierName) REFERENCES suppliers(name)
   );

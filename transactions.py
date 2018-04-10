@@ -11,7 +11,7 @@ class Transactions:
         db = MySQLdb.connect(host="127.0.0.1", user="root", passwd="secret", db="restaurant", port=33306)
         cursor = db.cursor()
 
-        get_all = "SELECT * FROM TRANSACTIONS;"
+        get_all = "SELECT * FROM transaction;"
 
         transactions_from_db = []
 
@@ -42,7 +42,7 @@ class Transactions:
         current_transactions = transaction_instance.get_transactions()
         time = datetime.datetime.now()
 
-        add_command = "INSERT INTO restaurant.transaction(total, time, method_of_payment, employeeID, LocationID) VALUES (" + total + ", " + time + ", '" + method_of_payment + ", " + locationID + ", " + employeeID + "');"
+        add_command = "INSERT INTO restaurant.transaction(total, time, method_of_payment, employeeID, LocationID) VALUES (" + total + ", '" + time + "', '" + method_of_payment + "', " + locationID + ", " + employeeID + "');"
         db = MySQLdb.connect(host="127.0.0.1", user="root", passwd="secret", db="restaurant", port=33306)
         cursor = db.cursor()
 
@@ -64,7 +64,7 @@ class Transactions:
         for transaction in current_transactions:
             if id == transaction["id"]:
                 # remove
-                add_command = "DELETE FROM restaurant.transaction WHERE id='" + id + "';"
+                add_command = "DELETE FROM restaurant.transaction WHERE id=" + id + ";"
                 
                 db = MySQLdb.connect(host="127.0.0.1", user="root", passwd="secret", db="restaurant", port=33306)
                 cursor = db.cursor()

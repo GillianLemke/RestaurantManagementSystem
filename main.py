@@ -85,7 +85,7 @@ def add_new_transaction():
 @app.route('/delete_transaction', methods=['GET', 'POST'])
 def delete_transaction():
     if request.method == 'POST':
-        id = request.form['transcation-id']
+        id = request.form['transaction-id']
         transaction_instance = Transactions()
         transaction_instance.delete_transaction(id)
         return redirect('/transactions')

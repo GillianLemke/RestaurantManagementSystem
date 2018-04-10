@@ -1,12 +1,12 @@
 CREATE TABLE `restaurant`.`transaction` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `total`, DOUBLE NOT NULL,
+  `total`, FLOAT NOT NULL,
   `time` DATETIME NULL,
   `method_of_payment` ENUM('cash','credit'),
-  `locationID` INT NULL,
+  `locationID` CHAR(100) NULL,
   `employeeID` INT NULL,
   PRIMARY KEY (`id`),
-  FOREIGN KEY (locationID) REFERENCES location(id),
+  FOREIGN KEY (locationID) REFERENCES location(address),
   FOREIGN KEY (employeeID) REFERENCES employee(id));
 
 

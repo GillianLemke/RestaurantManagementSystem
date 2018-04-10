@@ -69,12 +69,11 @@ def transactions():
 @app.route('/add_new_transaction', methods=['GET', 'POST'])
 def add_new_transaction():
     if request.method == 'POST':
-        name = request.form['transaction-name']
-        cost = request.form['transaction-cost']
-        ingredients = request.form['transaction-ingredients']
+        total = request.form['transaction-total']
+        method = request.form['transaction-method']
 
         transaction_instance = Transactions()
-        transaction_instance.add_transaction(name, cost, ingredients)
+        transaction_instance.add_transaction(total, method)
         return redirect('/transactions')
     else:
         return render_template('add_new_transaction.html')
@@ -82,10 +81,10 @@ def add_new_transaction():
 @app.route('/delete_transaction', methods=['GET', 'POST'])
 def delete_transaction():
     if request.method == 'POST':
-        name = request.form['transcation-name']
+        id = request.form['transaction-id']
 
         transaction_instance = Transactions()
-        transaction_instance.delete_transaction(name)
+        transaction_instance.delete_transaction(id)
         return redirect('/transactions')
     else:
         return render_template('delete_transaction.html')

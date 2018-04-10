@@ -8,7 +8,7 @@ class Transactions:
 
     def get_transactions(self):
         # Open database connection
-        db = MySQLdb.connect(host="127.0.0.1", user="root", passwd="secret", db="restaurant", port=33306)
+        db = MySQLdb.connect(host="127.0.0.1", user="root", passwd="password", db="restaurant")
         cursor = db.cursor()
 
         get_all = "SELECT * FROM transaction;"
@@ -21,6 +21,8 @@ class Transactions:
 
             # Fetch all the rows in a list of lists.
             results = cursor.fetchall()
+
+            print(type(results))
 
             for row in results:
                 id = row[0]
@@ -40,10 +42,15 @@ class Transactions:
     def add_transaction(self, total, method_of_payment, locationID, employeeID):
         transaction_instance = Transactions()
         current_transactions = transaction_instance.get_transactions()
-        time = datetime.datetime.now()
+        time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
+<<<<<<< HEAD
         add_command = "INSERT INTO restaurant.transaction(total, time, method_of_payment, employeeID, LocationID) VALUES (" + total + ", '" + time + "', '" + method_of_payment + "', " + locationID + ", " + employeeID + "');"
         db = MySQLdb.connect(host="127.0.0.1", user="root", passwd="secret", db="restaurant", port=33306)
+=======
+        add_command = "INSERT INTO restaurant.transaction(total, time, method_of_payment) VALUES (" + total + ", '" + time + "', '" + method_of_payment + "');"
+        db = MySQLdb.connect(host="127.0.0.1", user="root", passwd="password", db="restaurant")
+>>>>>>> a2895e8c509e8b13c683af65f9fc963d5d036a57
         cursor = db.cursor()
 
         try:
@@ -51,7 +58,7 @@ class Transactions:
             cursor.execute(add_command)
             db.commit()
             db.close()
-            return {'id': id, 'total': total, 'time': time, 'method_of_payment': method_of_payment}            
+            return {'id': id, 'total': total, 'time': time, 'method_of_payment': method_of_payment}
         except:
             db.rollback()
             return 1
@@ -62,11 +69,16 @@ class Transactions:
 
         # check to make sure a tuple with that primary key doesn't already exist
         for transaction in current_transactions:
-            if id == transaction["id"]:
+            if int(id) == int(transaction["id"]):
                 # remove
                 add_command = "DELETE FROM restaurant.transaction WHERE id=" + id + ";"
+<<<<<<< HEAD
                 
                 db = MySQLdb.connect(host="127.0.0.1", user="root", passwd="secret", db="restaurant", port=33306)
+=======
+
+                db = MySQLdb.connect(host="127.0.0.1", user="root", passwd="password", db="restaurant")
+>>>>>>> a2895e8c509e8b13c683af65f9fc963d5d036a57
                 cursor = db.cursor()
 
                 try:

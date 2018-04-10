@@ -5,7 +5,7 @@ class Locations:
 
     def get_locations(self):
         #Open database connection
-        db = MySQLdb.connect(host="127.0.0.1", user="root", passwd="secret", db="restaurant", port=33306)
+        db = MySQLdb.connect(host="127.0.0.1", user="root", passwd="password", db="restaurant")
         cursor = db.cursor()
 
         get_all = "SELECT * FROM location;"
@@ -44,7 +44,7 @@ class Locations:
 
         add_command = "INSERT INTO restaurant.location(address, type, hours, manager) VALUES ('" + address + "', '" + type + "', '" + hours + "', '" + manager + "');"
 
-        db = MySQLdb.connect(host="127.0.0.1", user="root", passwd="secret", db="restaurant", port=33306)
+        db = MySQLdb.connect(host="127.0.0.1", user="root", passwd="password", db="restaurant")
         cursor = db.cursor()
 
         try:
@@ -67,7 +67,7 @@ class Locations:
                 # remove
                 add_command = "DELETE FROM restaurant.location WHERE address='" + address + "';"
 
-                db = MySQLdb.connect(host="127.0.0.1", user="root", passwd="secret", db="restaurant", port=33306)
+                db = MySQLdb.connect(host="127.0.0.1", user="root", passwd="password", db="restaurant")
                 cursor = db.cursor()
 
                 try:

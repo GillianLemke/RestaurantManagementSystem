@@ -7,7 +7,7 @@ class Products:
 
     def get_products(self):
         # Open database connection
-        db = MySQLdb.connect(host="127.0.0.1", user="root", passwd="secret", db="restaurant", port=33306)
+        db = MySQLdb.connect(host="127.0.0.1", user="root", passwd="password", db="restaurant")
         cursor = db.cursor()
 
         get_all = "SELECT * FROM product;"
@@ -50,7 +50,7 @@ class Products:
         elif bool(name):
             add_command = "INSERT INTO restaurant.product(name) VALUES ('" + name + "');"
 
-        db = MySQLdb.connect(host="127.0.0.1", user="root", passwd="secret", db="restaurant", port=33306)
+        db = MySQLdb.connect(host="127.0.0.1", user="root", passwd="password", db="restaurant")
         cursor = db.cursor()
 
         try:
@@ -72,8 +72,8 @@ class Products:
             if name == product["name"]:
                 # remove
                 add_command = "DELETE FROM restaurant.product WHERE name='" + name + "';"
-                
-                db = MySQLdb.connect(host="127.0.0.1", user="root", passwd="secret", db="restaurant", port=33306)
+
+                db = MySQLdb.connect(host="127.0.0.1", user="root", passwd="password", db="restaurant")
                 cursor = db.cursor()
 
                 try:

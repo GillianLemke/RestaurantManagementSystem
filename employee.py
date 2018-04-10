@@ -38,7 +38,7 @@ class Employees:
 
     def get_employees(self):
         # Open database connection
-        db = MySQLdb.connect(host="127.0.0.1", user="root", passwd="secret", db="restaurant", port=33306)
+        db = MySQLdb.connect(host="127.0.0.1", user="root", passwd="password", db="restaurant")
         cursor = db.cursor()
 
         get_all = "SELECT * FROM employee;"
@@ -78,7 +78,7 @@ class Employees:
         add_command = "INSERT INTO restaurant.employee(name, id, wage, status, location) VALUES ('" + name + "', '" + id + "', '" + str(
             wage) + "', '" + status + "', '" + location + "');"
 
-        db = MySQLdb.connect(host="127.0.0.1", user="root", passwd="secret", db="restaurant", port=33306)
+        db = MySQLdb.connect(host="127.0.0.1", user="root", passwd="password", db="restaurant")
         cursor = db.cursor()
 
         try:
@@ -101,7 +101,7 @@ class Employees:
                 # remove
                 add_command = "DELETE FROM restaurant.employee WHERE id='" + str(id) + "';"
 
-                db = MySQLdb.connect(host="127.0.0.1", user="root", passwd="secret", db="restaurant", port=33306)
+                db = MySQLdb.connect(host="127.0.0.1", user="root", passwd="password", db="restaurant")
                 cursor = db.cursor()
 
                 try:

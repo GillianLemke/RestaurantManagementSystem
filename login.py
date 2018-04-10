@@ -7,7 +7,7 @@ class Login:
 
     def login_success(self, name, number):
         # Open database connection
-        db = MySQLdb.connect(host="127.0.0.1", user="root", passwd="secret", db="restaurant", port=33306)
+        db = MySQLdb.connect(host="127.0.0.1", user="root", passwd="password", db="restaurant")
         cursor = db.cursor()
 
         get_employee = "SELECT * FROM restaurant.employee WHERE id='" + number + "';"
